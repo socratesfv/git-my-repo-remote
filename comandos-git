@@ -1,4 +1,6 @@
-T INIT: se inicia un nuevo proyecto
+.: COMANDOS GIT :.
+
+1) GIT INIT: se inicia un nuevo proyecto
 Ejemplo: 
 >> git init
 Initialised empty git repository in directory
