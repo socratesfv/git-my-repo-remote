@@ -1,0 +1,96 @@
+.: COMANDOS GIT :.
+
+1) GIT INIT: se inicia un nuevo proyecto
+Ejemplo: 
+>> git init
+Initialised empty git repository in directory
+
+2) GIT CLONE: se copia un proyecto de otro lado
+Ejemplo:
+>> git clone git://github.com/gonchi/tarea1
+Copia el proyecto en el que se encuentra este archivo
+
+3) GIT BRANCH: lista todas las ramas del proyecto
+Ejemplo:
+>> git branch
+lista todas las ramas del proyecto. En el caso de 'tarea 1' lista:
+*master
+master es la rama por defecto y el * marca la rama que apunta (sirve para cuando hay mas de una rama)
+
+4) GIT BRANCH <NOMBRE>: crea una nueva rama con el nombre <NOMBRE>
+Ejemplo:
+>> git branch prueba
+crea una nueva rama 'prueba'
+si hacemos un git branch se veria:
+*master
+ prueba
+
+5) GIT CHECKOUT <NOMBRE>: apunta a la rama <NOMBRE>
+Ejemplo:
+>> git checkout prueba
+pasa de apuntar a la rama 'master' a la rama 'prueba'
+si hacemos un git branch se veria:
+ master
+*prueba
+
+6) GIT BRANCH -D <NOMBRE>: borra la rama <NOMBRE>
+Ejemplo:
+>> git branch -d prueba
+borra la rama prueba (para borrarla hay que estar situado en otra rama)
+
+7) GIT ADD <ARCHIVO>: actualiza las modificaciones hechas en un archivo (los deja 'disponibles' para ser 'commiteados')
+Ejemplo: 
+>> git add git.txt
+actualiza las modificaciones hechas en git.txt (las incluye en los archivos que seran 'commiteados')
+
+8) GIT COMMIT -M <MENSAJE>: graba una nueva instantanea al proyecto, con todas las modificaciones agregadas mediante el git add.
+Cada commit tiene un mensaje en el cual se explica brevemente de que se trata la nueva actualizacion
+Ejemplo:
+>> git commit -m 'agrega el archivo git.txt, con explicaciones de 15 comandos'
+Además se graba el nombre y direccion de e-mail del usuario que hace el commit
+
+9) GIT LOG: Despliega los commits hechos en orden, incluyendo un codigo que identifa a cada commit, el autor (usuario), la fecha y el mensaje
+Ejemplo:
+>> git log desplegaria:
+# commit <codigo>
+# Autor: <autor y e-mail>
+# Fecha: <fecha>
+# Mensaje del commit (en esta caso seria: agrega el archivo git.txt, con explicaciones de 15 comandos)
+
+10) GIT STATUS: Despliega la rama en la que se encuentra, los cambios a ser 'commiteados' y los cambios que no han sido agregados (mediante git add)
+Ejemplo:
+>> git status desplegaris:
+# On branch master 
+# Cambios para el commit
+# Cambios no actualizados
+
+11) GIT DIFF: Despliega la diferencia entre el codigo del directorio actualmente y lo ultiomo 'commiteado'
+Ejemplo: 
+>> git diff
+muestra diferencias en el archivo git.txt actual y el ultimo en ser 'commiteado'
+
+12) GIT MERGE <BRANCH>: incorpora el trabajo hecho en una rama a la rama principal
+Ejemplo (trabajando en una rama 'prueba'):
+>> ls
+git.txt
+>> git checkout master
+>> ls
+README
+>> git merge prueba
+>> ls
+README  git.txt
+
+13) GIT RESET: Devuelve el proyecto al ultimo commit, eliminando todas las modificaciones no 'commiteadas'
+Ejemplo:
+>> git reset HEAD
+El proyecto pasa a ser el ultimo commit, eliminando cualquier cambio posterior
+
+14) GIT REMOTE ADD: Agrega una ubicacion fuera del sistema local, donde se puede almacenar repositorios
+Ejemplo:
+>> git remote add origin git@github.com:gonchi/tarea1.git
+Agrega el remote origin en github
+
+15) GIT PUSH: Comparte los commits hechos en github
+Ejemplo:
+>> git push origin master
+Envia la rama master al remote 'origin' creado anteriormente
